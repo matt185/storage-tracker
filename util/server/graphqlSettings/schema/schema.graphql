@@ -11,5 +11,11 @@ type Item{
 
 type Query{
     items:[Item]
+    itemByClass(itemClass: String):[Item]
+}
+
+type Mutation{
+    addItems(itemClass:String, itemName:String, amount:Int,minAmount:Int, price:String):Item
+    deleteItems(id:String):Boolean
 }
 

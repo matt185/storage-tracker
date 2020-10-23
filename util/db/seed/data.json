@@ -7,4 +7,5 @@
     {"id":"19c5d477-a7c8-4e62-8922-be35b9bd9e49","ItemClass":"Home","ItemName":"Immuron","amount":28,"minAmount":2,"price":"$67.60"},
     {"id":"19c3d377-a7c8-4e62-8922-be35b9bd9e49","ItemClass":"Garden","ItemName":"Cempra","amount":90,"minAmount":9,"price":"$59.82"},
     {"id":"19c3s377-a7c8-4e62-8922-be35b9bd9e49","ItemClass":"Baby","ItemName":"Retail Properties","amount":46,"minAmount":8,"price":"$61.79"},
-    {"id":"19c3d377-e7c8-4e62-8922-be35b9bd9e49","ItemClass":"Computers","ItemName":"Vectrusd","amount":36,"minAmount":10,"price":"$19.71"}]
+    {"id":"19c3d377-e7c8-4e62-8922-be35b9bd9e49","ItemClass":"Computers","ItemName":"Vectrusd","amount":36,"minAmount":10,"price":"$19.71"},
+    {"id":"19c3d375-e7c8-4e62-8922-be35b9bd9e49","ItemClass":"Computers","ItemName":"hp","amount":26,"minAmount":2,"price":"$190.71"}]
