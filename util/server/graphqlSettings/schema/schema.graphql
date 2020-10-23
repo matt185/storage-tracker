@@ -1,0 +1,15 @@
+
+type Item{
+    id:String
+    itemClass:String
+    itemName:String
+    amount:Int
+    minAmount:Int
+    price:String
+}
+
+
+type Query{
+    items:[Item]
+}
+

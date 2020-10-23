@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "nodemon ./index.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "knex:migrate": "knex migrate:latest",
-    "knex:make" : "knex migrate:make",
+    "knex:make": "knex migrate:make",
     "seed": "node ./util/db/seed/seed.js"
   },
   "dependencies": {
@@ -18,6 +19,7 @@
     "knex": "^0.21.6",
     "nodemon": "^2.0.6",
     "pg": "^8.4.1",
+    "uuid": "^8.3.1",
     "vue": "^2.6.11",
     "vue-apollo": "^3.0.0-beta.11"
   },
