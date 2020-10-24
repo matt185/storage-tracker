@@ -21,20 +21,49 @@ const resolvers = {
                 itemName: itemName,
                 amount: amount,
                 minAmount: minAmount,
-                price:price
+                price: price
             }
             await db('store_items').insert(newItem)
 
             return newItem
         },
-        deleteItems: async(_,{id})=>{
+        deleteItems: async (_, { id }) => {
             await db('store_items').where("id", id).del()
-            let check= await db('store_items').where("id", id)
+            let check = await db('store_items').where("id", id)
             if (check.length === 0) {
                 return true
             }
             return String
+        },
+        modifyItem: async (_, { id, itemClass, itemName, amount, minAmount, price }) => {
+            if (itemClass){
+                await db('store_items').where("id", id).update({ itemClass: itemClass })
+            }
+            if (itemName){
+                await db('store_items').where("id", id).update({ itemName: itemName })
+            }
+            if (amount){
+                await db('store_items').where("id", id).update({ amount: amount })
+            }
+            if (minAmount) {
+                await db('store_items').where("id", id).update({ minAmount: minAmount })
+            } if (price){
+                await db('store_items').where("id", id).update({ price: price })
+            }
+            
+            let check= await db('store_items').where("id", id)
+            return check
+        },
+        amountModifier: async(_, { id, action, quantity })=>{
+            if (!quantity) { quantity = 1 }
+            let item = await db('store_items').where("id", id)
+            if (action === "+") { item[0].amount = item[0].amount + quantity }
+            if (action === "-") { item[0].amount = item[0].amount - quantity }
+            
+            await db('store_items').where("id", id).update({ amount: item[0].amount })
+            return item
         }
+
     }
 }
 

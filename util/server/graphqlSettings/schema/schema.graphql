@@ -17,5 +17,7 @@ type Query{
 type Mutation{
     addItems(itemClass:String, itemName:String, amount:Int,minAmount:Int, price:String):Item
     deleteItems(id:String):Boolean
+    modifyItem(id:String, itemClass:String, itemName:String, amount:Int,minAmount:Int, price:String):[Item]
+    amountModifier(id:String, action:String, quantity:Int ): [Item]
 }
 
