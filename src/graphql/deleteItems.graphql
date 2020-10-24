@@ -1,0 +1,3 @@
+mutation deleteItems($id:String){
+     deleteItems(id: $id)
+}
