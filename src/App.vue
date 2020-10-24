@@ -1,15 +1,16 @@
 <template>
 <div id="app">
-    <div>
-        <ManagerButton />
+    <div id="button">
+        <ManagerButton v-on:change-view="switchView = !switchView" v-bind:switchView="switchView" />
     </div>
     <div id="title">
         <img id="logo" alt="Vue logo" src="./assets/logo.png">
         <Title msg="Storage Tracker" />
     </div>
+    {{myDate}}
     <div>
-        <ItemsView />
-        <ManagerView />
+        <ItemsView v-if="switchView" />
+        <ManagerView v-else />
     </div>
 </div>
 </template>
@@ -27,7 +28,12 @@ export default {
         ItemsView,
         ManagerView,
         ManagerButton
-
+    },
+    data: () => {
+        return {
+            switchView: true,
+            myDate: new Date().toISOString().slice(0, 10)
+        }
     }
 }
 </script>
@@ -43,6 +49,12 @@ export default {
     flex-direction: column;
 }
 
+#button {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
 #title {
     display: flex;
     flex-direction: row;
@@ -53,5 +65,9 @@ export default {
 
 #logo {
     height: 40px;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
 }
 </style>
