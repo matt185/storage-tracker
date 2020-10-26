@@ -24,8 +24,10 @@ const resolvers = {
                 price: price
             }
             await db('store_items').insert(newItem)
-
+            let check = await db('store_items').where("itemName", itemName)
+            await db('store_items').where("id", check[1].id).del()
             return newItem
+
         },
         deleteItems: async (_, { id }) => {
             await db('store_items').where("id", id).del()

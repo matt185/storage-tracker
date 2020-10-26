@@ -1,5 +1,6 @@
 <template>
 <div>
+    <InputView />
     <table border="1px" id="table">
 
         <tr>
@@ -41,13 +42,16 @@
 
 <script>
 import gql from 'graphql-tag'
+import InputView from './InputView'
 import TASKS_DELETE from "../graphql/deleteItems.graphql"
 import UPDATE_ITEM from "../graphql/amountUpdate.graphql"
 export default {
     name: "ManagerView",
+    components: {
+        InputView
+    },
     methods: {
         del(id) {
-
             this.$apollo.mutate({
                     mutation: TASKS_DELETE,
                     variables: {
@@ -89,7 +93,7 @@ export default {
                 this.$apollo.queries.items.refetch({
                     amount: id
                 })
-        }
+        },
     },
     apollo: {
         items: gql `

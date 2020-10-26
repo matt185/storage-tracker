@@ -8,6 +8,7 @@
         <Title msg="Storage Tracker" />
     </div>
     {{myDate}}
+
     <div>
         <ItemsView v-if="switchView" />
         <ManagerView v-else />
