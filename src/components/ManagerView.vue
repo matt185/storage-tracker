@@ -1,8 +1,7 @@
 <template>
-<div>
+<div id="managerView">
     <InputView id="allproduct" />
     <table border="1px" id="table">
-
         <tr>
             <td class="head"></td>
             <td class="head">id</td>
@@ -12,7 +11,6 @@
             <td class="head">amount</td>
             <td class="head">minAmount</td>
             <td class="head">Set Amount</td>
-
         </tr>
         <tr v-for="(item, i) in items" :key="i">
             <td class="head">{{i+1}}</td>
@@ -25,27 +23,26 @@
             <div>
                 <td>
                     <div>
-                        <input type="text" name="amountInput" class="amount">
+                        <input type="text" name="amountInput" class="amount" />
                     </div>
-                    <button v-on:click=(increment(item.id,i)) type="submit">+</button>
-                    <button v-on:click=(decrement(item.id,i)) type="submit">-</button>
+                    <button v-on:click="(increment(item.id,i))" type="submit">+</button>
+                    <button v-on:click="(decrement(item.id,i))" type="submit">-</button>
                 </td>
             </div>
             <td>
-                <button v-on:click=del(item.id) type="submit">delete</button>
+                <button v-on:click="del(item.id)" type="submit">delete</button>
             </td>
         </tr>
-
     </table>
 </div>
 </template>
 
 <script>
-import gql from 'graphql-tag'
-import InputView from './InputView'
-import TASKS_DELETE from "../graphql/deleteItems.graphql"
-import UPDATE_ITEM_ADD from "../graphql/amountUpdateAdd.graphql"
-import UPDATE_ITEM_DECREASE from "../graphql/amountUpdateDecrease.graphql"
+import gql from "graphql-tag";
+import InputView from "./InputView";
+import TASKS_DELETE from "../graphql/deleteItems.graphql";
+import UPDATE_ITEM_ADD from "../graphql/amountUpdateAdd.graphql";
+import UPDATE_ITEM_DECREASE from "../graphql/amountUpdateDecrease.graphql";
 export default {
     name: "ManagerView",
     components: {
@@ -56,13 +53,15 @@ export default {
             this.$apollo.mutate({
                     mutation: TASKS_DELETE,
                     variables: {
-                        id: id,
+                        id: id
                     }
                 }),
-                this.$apollo.queries.items.refetch()
+                this.$apollo.queries.items.refetch();
         },
         increment(id, i) {
-            let inputAmount = Number(document.body.getElementsByClassName("amount")[i].value)
+            let inputAmount = Number(
+                document.body.getElementsByClassName("amount")[i].value
+            );
 
             this.$apollo.mutate({
                     mutation: UPDATE_ITEM_ADD,
@@ -73,10 +72,12 @@ export default {
                 }),
                 this.$apollo.queries.items.refetch({
                     amount: id
-                })
+                });
         },
         decrement(id, i) {
-            let inputAmount = Number(document.body.getElementsByClassName("amount")[i].value)
+            let inputAmount = Number(
+                document.body.getElementsByClassName("amount")[i].value
+            );
 
             this.$apollo.mutate({
                     mutation: UPDATE_ITEM_DECREASE,
@@ -88,33 +89,39 @@ export default {
                 }),
                 this.$apollo.queries.items.refetch({
                     amount: id
-                })
-        },
+                });
+        }
     },
     apollo: {
         items: gql `
-        query{
-            items{
-                id
-                itemClass
-                itemName
-                amount
-                minAmount
-                price
-
-            }
-        }`
+      query {
+        items {
+          id
+          itemClass
+          itemName
+          amount
+          minAmount
+          price
+        }
+      }
+    `
     }
-}
+};
 </script>
 
 <style scoped>
-#allproduct {
+#managerView {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 40px;
+}
 
+#allproduct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
 }
 
 .head {
