@@ -12,6 +12,7 @@
     "seed": "node ./util/db/seed/seed.js"
   },
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",

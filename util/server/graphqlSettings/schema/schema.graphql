@@ -1,17 +1,36 @@
-
 type Item{
     id:String
     itemClass:String
     itemName:String
     amount:Int
     minAmount:Int
-    price:String
+    price:Float
 }
 
+type User{
+    userId:String
+    username:String
+    password:String
+    email:String
+    items:[ItemTake]
+}
+
+type ItemTake{
+    userId:String
+    id:String
+    itemClass:String
+    itemName:String
+    amount:Int
+    price:String
+}
 
 type Query{
     items:[Item]
     itemByClass(itemClass: String):[Item]
+    user(userId:String):[User]
+    users:[User]
+    itemsTakeByUser(userId:String):[Item]
+    itemsTake:[ItemTake]
 }
 
 type Mutation{
@@ -20,5 +39,9 @@ type Mutation{
     updateItem(id:String, itemClass:String, itemName:String, amount:Int,minAmount:Int, price:String):Boolean
     amountUpdateAdd(id:String, quantity:Int ): Boolean
     amountUpdateDecrease(id:String, quantity:Int ): Boolean
+    addItemUser(userId:String, id:String, amount:Int):Item
+    deleteAllUserItem(userId:String):Boolean
+    deleteSingleUserItem(userId:String,id:String):Boolean
+    signUp(username:String, email:String, password:String):User
 }
 
