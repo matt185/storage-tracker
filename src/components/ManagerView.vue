@@ -1,6 +1,6 @@
 <template>
 <div>
-    <InputView />
+    <InputView id="allproduct" />
     <table border="1px" id="table">
 
         <tr>
@@ -25,7 +25,7 @@
             <div>
                 <td>
                     <div>
-                        <input type="text" name="amountinput" class="amount">
+                        <input type="text" name="amountInput" class="amount">
                     </div>
                     <button v-on:click=(increment(item.id,i)) type="submit">+</button>
                     <button v-on:click=(decrement(item.id,i)) type="submit">-</button>
@@ -44,7 +44,8 @@
 import gql from 'graphql-tag'
 import InputView from './InputView'
 import TASKS_DELETE from "../graphql/deleteItems.graphql"
-import UPDATE_ITEM from "../graphql/amountUpdate.graphql"
+import UPDATE_ITEM_ADD from "../graphql/amountUpdateAdd.graphql"
+import UPDATE_ITEM_DECREASE from "../graphql/amountUpdateDecrease.graphql"
 export default {
     name: "ManagerView",
     components: {
@@ -63,13 +64,10 @@ export default {
         increment(id, i) {
             let inputAmount = Number(document.body.getElementsByClassName("amount")[i].value)
 
-            let actions = "+"
-
             this.$apollo.mutate({
-                    mutation: UPDATE_ITEM,
+                    mutation: UPDATE_ITEM_ADD,
                     variables: {
                         id: id,
-                        action: actions,
                         quantity: inputAmount
                     }
                 }),
@@ -80,13 +78,11 @@ export default {
         decrement(id, i) {
             let inputAmount = Number(document.body.getElementsByClassName("amount")[i].value)
 
-            let actions = "-"
-
             this.$apollo.mutate({
-                    mutation: UPDATE_ITEM,
+                    mutation: UPDATE_ITEM_DECREASE,
                     variables: {
                         id: id,
-                        action: actions,
+
                         quantity: inputAmount
                     }
                 }),

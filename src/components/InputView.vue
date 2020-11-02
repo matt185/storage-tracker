@@ -57,11 +57,12 @@ export default {
             this.$apollo.queries.items.refetch()
         },
         addItem() {
-            let itemName = document.body.getElementsByClassName("inp")[0]
-            let itemClass = document.body.getElementsByClassName("inp")[1]
-            let amount = Number(document.body.getElementsByClassName("inp")[2])
-            let minAmount = Number(document.body.getElementsByClassName("inp")[3])
-            let price = document.body.getElementsByClassName("inp")[4]
+            let itemName = document.body.getElementsByClassName("inp")[0].value
+            let itemClass = document.body.getElementsByClassName("inp")[1].value
+            let amount = Number(document.body.getElementsByClassName("inp")[2].value)
+            let minAmount = Number(document.body.getElementsByClassName("inp")[3].value)
+            let price = document.body.getElementsByClassName("inp")[4].value
+            console.log(itemName, itemClass, amount, minAmount, price)
             this.$apollo.mutate({
                 mutation: ADD_ITEM,
                 variables: {

@@ -15,8 +15,9 @@ const resolvers = {
     },
     Mutation: {
         addItems: async (_, { itemClass, itemName, amount, minAmount, price }) => {
+            let id=uuidv4()
             let newItem = {
-                id: uuidv4(),
+                id: id,
                 itemClass: itemClass,
                 itemName: itemName,
                 amount: amount,
@@ -25,7 +26,9 @@ const resolvers = {
             }
             await db('store_items').insert(newItem)
             let check = await db('store_items').where("itemName", itemName)
-            await db('store_items').where("id", check[1].id).del()
+            if (check.length != 0) {
+                await db('store_items').where("id", check[1].id).del()
+            }
             return newItem
 
         },
@@ -55,12 +58,17 @@ const resolvers = {
             let check= await db('store_items').where("id", id)
             return check
         },
-        amountUpdate: async(_, { id, action, quantity })=>{
+        amountUpdateAdd: async(_, { id, quantity })=>{
             if (!quantity) { quantity = 1 }
             let item = await db('store_items').where("id", id)
-            if (action === "+") { item[0].amount = item[0].amount + quantity }
-            if (action === "-") { item[0].amount = item[0].amount - quantity }
-            
+            item[0].amount = item[0].amount + quantity 
+            await db('store_items').where("id", id).update({ amount: item[0].amount })
+            return true
+        },
+        amountUpdateDecrease: async(_, { id, quantity })=>{
+            if (!quantity) { quantity = 1 }
+            let item = await db('store_items').where("id", id)
+            item[0].amount = item[0].amount - quantity 
             await db('store_items').where("id", id).update({ amount: item[0].amount })
             return true
         }

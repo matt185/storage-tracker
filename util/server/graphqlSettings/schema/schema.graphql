@@ -18,6 +18,7 @@ type Mutation{
     addItems(itemClass:String, itemName:String, amount:Int,minAmount:Int, price:String):Item
     deleteItems(id:String):Boolean
     updateItem(id:String, itemClass:String, itemName:String, amount:Int,minAmount:Int, price:String):Boolean
-    amountUpdate(id:String, action:String, quantity:Int ): Boolean
+    amountUpdateAdd(id:String, quantity:Int ): Boolean
+    amountUpdateDecrease(id:String, quantity:Int ): Boolean
 }
 

@@ -1,0 +1,4 @@
+mutation amountUpdateDecrease($id:String, $quantity:Int ){
+
+    amountUpdateDecrease(id: $id, quantity: $quantity)
+}
