@@ -2,34 +2,33 @@
 <div>
     <ApolloMutation :mutation="require('../graphql/addItem.graphql')" :variables="{itemClass, itemName, price, amount, minAmount}" @done="onDone">
         <template v-slot="{mutate}">
-
-            <form v-on:submit.prevent="mutate()">
+            <form id="inputArea" v-on:submit.prevent="mutate()">
                 <div v-if="onUpdate">
-                    <label for="id">Id</label>
-                    <input class="inp" type="text" v-model="id">
+                    <label for="id">Id:</label>
+                    <input class="inp" type="text" v-model="id" />
                 </div>
                 <div>
-                    <label for="itemName">ItemName</label>
-                    <input class="inp" type="text" v-model="itemName">
+                    <label for="itemName">ItemName:</label>
+                    <input class="inp" type="text" v-model="itemName" />
                 </div>
                 <div>
-                    <label for="itemClass">itemClass</label>
-                    <input class="inp" type="text" v-model="itemClass">
+                    <label for="itemClass">itemClass:</label>
+                    <input class="inp" type="text" v-model="itemClass" />
                 </div>
                 <div>
-                    <label for="amount">Amount</label>
-                    <input class="inp" type="number" v-model.number="amount">
+                    <label for="amount">Amount:</label>
+                    <input class="inp" type="number" v-model.number="amount" />
                 </div>
                 <div>
-                    <label for="minAmont">MinAmont</label>
-                    <input class="inp" type="number" v-model.number="minAmount">
+                    <label for="minAmont">MinAmont:</label>
+                    <input class="inp" type="number" v-model.number="minAmount" />
                 </div>
                 <div>
-                    <label for="price">Price</label>
-                    <input type="text" v-model="price">
+                    <label for="price">Price:</label>
+                    <input type="text" v-model="price" />
                 </div>
                 <button v-if="onUpdate">Update</button>
-                <button v-else @click=mutate()>Add</button>
+                <button v-else @click="mutate()">Add</button>
             </form>
         </template>
     </ApolloMutation>
@@ -37,8 +36,8 @@
 </template>
 
 <script>
-import gql from 'graphql-tag'
-import ADD_ITEM from "../graphql/addItem.graphql"
+import gql from "graphql-tag";
+import ADD_ITEM from "../graphql/addItem.graphql";
 export default {
     name: "InputView",
     data: () => {
@@ -50,19 +49,21 @@ export default {
             price: "",
             minAmount: "",
             onUpdate: false
-        }
+        };
     },
     methods: {
         onDone() {
-            this.$apollo.queries.items.refetch()
+            this.$apollo.queries.items.refetch();
         },
         addItem() {
-            let itemName = document.body.getElementsByClassName("inp")[0].value
-            let itemClass = document.body.getElementsByClassName("inp")[1].value
-            let amount = Number(document.body.getElementsByClassName("inp")[2].value)
-            let minAmount = Number(document.body.getElementsByClassName("inp")[3].value)
-            let price = document.body.getElementsByClassName("inp")[4].value
-            console.log(itemName, itemClass, amount, minAmount, price)
+            let itemName = document.body.getElementsByClassName("inp")[0].value;
+            let itemClass = document.body.getElementsByClassName("inp")[1].value;
+            let amount = Number(document.body.getElementsByClassName("inp")[2].value);
+            let minAmount = Number(
+                document.body.getElementsByClassName("inp")[3].value
+            );
+            let price = document.body.getElementsByClassName("inp")[4].value;
+            console.log(itemName, itemClass, amount, minAmount, price);
             this.$apollo.mutate({
                 mutation: ADD_ITEM,
                 variables: {
@@ -70,30 +71,33 @@ export default {
                     itemName: itemName,
                     amount: amount,
                     minAmount: minAmount,
-                    price: price,
+                    price: price
                 }
-            })
-            this.$apollo.queries.items.refetch()
+            });
+            this.$apollo.queries.items.refetch();
         }
     },
     apollo: {
         items: gql `
-        query{
-            items{
-                id
-                itemClass
-                itemName
-                amount
-                minAmount
-                price
-
-            }
-        }`
+      query {
+        items {
+          id
+          itemClass
+          itemName
+          amount
+          minAmount
+          price
+        }
+      }
+    `
     }
-
-}
+};
 </script>
 
 <style scoped>
-
+#inputArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 </style>

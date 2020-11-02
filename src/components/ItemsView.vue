@@ -22,24 +22,24 @@
 </template>
 
 <script>
-import gql from "graphql-tag"
+import gql from "graphql-tag";
 export default {
     name: "ItemsView",
     apollo: {
         items: gql `
-        query{
-            items{
-                id
-                itemClass
-                itemName
-                amount
-                minAmount
-                price
-
-            }
-        }`
+      query {
+        items {
+          id
+          itemClass
+          itemName
+          amount
+          minAmount
+          price
+        }
+      }
+    `
     }
-}
+};
 </script>
 
 <style scoped>
