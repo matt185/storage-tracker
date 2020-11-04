@@ -1,24 +1,27 @@
 # storage-tracker
 
-## Project setup
-```
-yarn install
-```
+##  Project Idea
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+A simple app recreate a store management system that take under control the storage status
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## How to use
 
-### Lints and fixes files
-```
-yarn lint
-```
+How to install
+1. Clone repository
+2. yarn install
+3. yarn serve
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Start Server and Migrations  
+1. yarn start
+
+Seeding
+1. yarn seed
+
+## MVP
+
+An app that permit to add, remove modify the item in the storage system
+
+## Stretch Goals/Tabs
+
+- Extra filter options 
+- Authentication system
