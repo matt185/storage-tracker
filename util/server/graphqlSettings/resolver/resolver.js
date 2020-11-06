@@ -198,18 +198,18 @@ const resolvers = {
             }
             return true
         },
-        signUp: async (_, {
+        addUser: async (_, {
             username,
-            email,
-            password
+            password,
+            role
         }) => {
             const salt = await bcrypt.genSalt();
             const hashedPassword = await bcrypt.hash(password, salt);
             const newUser = {
                 userId: uuidv4(),
                 username: username,
-                email: email,
                 password: hashedPassword,
+                role: role
             }
             await db("users_Info").insert(newUser)
             return newUser

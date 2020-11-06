@@ -9,7 +9,7 @@ exports.up = function (knex) {
     }).createTable("users_Info", table => {
         table.text("userId").unique();
         table.text("username").unique();
-        table.text("email").unique()
+        table.text("role")
         table.text("password");
     }).createTable("item_Take", table => {
         table.text("userId")

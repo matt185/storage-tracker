@@ -48,14 +48,14 @@ const db = require("../knex");
         for (const user of users) {
             const userId = user.userId
             const username = user.username
-            const email = user.email
+            const role = user.role
             const password = user.password
 
             const usersTable = await db("users_Info").insert({
                 userId,
                 username,
-                email,
-                password
+                password,
+                role
             })
         }
     } catch (err) {

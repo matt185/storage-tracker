@@ -11,7 +11,7 @@ type User{
     userId:String
     username:String
     password:String
-    email:String
+    role:String
     items:[ItemTake]
 }
 
@@ -42,6 +42,6 @@ type Mutation{
     addItemUser(userId:String, id:String, amount:Int):Item
     deleteAllUserItem(userId:String):Boolean
     deleteSingleUserItem(userId:String,id:String):Boolean
-    signUp(username:String, email:String, password:String):User
+    addUser(username:String, password:String, role:String):User
 }
 

@@ -1,6 +1,6 @@
 [{
     "items": [{
-            "id": "19c5d377-a9c8-4e62-8922-be35b9bd9e39",
+            "id": "19c5d377-a9c8-4e11-8922-be35b9bd9e39",
             "ItemClass": "Music",
             "ItemName": "Landmark",
             "amount": 37,
@@ -8,7 +8,7 @@
             "price": 77.25
         },
         {
-            "id": "29c5d377-a9c8-4e62-8922-be35b9bd9e39",
+            "id": "29c5d327-a9c8-4e62-8922-be35b9bd9e39",
             "ItemClass": "Industrial",
             "ItemName": "Pro-Dex",
             "amount": 89,
@@ -16,7 +16,7 @@
             "price": 40.69
         },
         {
-            "id": "39c5d377-a9c8-4e62-8922-be35b9bd9e39",
+            "id": "39c5d372-a9c8-4e62-8922-be35b9bd9e39",
             "ItemClass": "Tools",
             "ItemName": "Convergys",
             "amount": 64,
@@ -24,7 +24,7 @@
             "price": 40.22
         },
         {
-            "id": "13c5d377-a9c8-4e62-8922-be35b9bd9e39",
+            "id": "13c5d371-a9c8-4e62-8922-be35b9bd9e39",
             "ItemClass": "Shoes",
             "ItemName": "Hawaiian",
             "amount": 46,
@@ -32,7 +32,7 @@
             "price": 18.70
         },
         {
-            "id": "19c5d367-a9c8-4e62-8922-be35b9bd9e39",
+            "id": "19c5d397-a9c8-4e62-8922-be35b9bd9e39",
             "ItemClass": "Outdoors",
             "ItemName": "Palo Alto",
             "amount": 97,
@@ -40,7 +40,7 @@
             "price": 75.25
         },
         {
-            "id": "19c5d377-a7c8-4e62-8922-be35b9bd9e49",
+            "id": "19c5y377-a7c8-4e62-8922-be35b9bd9e49",
             "ItemClass": "Sports",
             "ItemName": "VictoryShares US",
             "amount": 34,
@@ -48,7 +48,7 @@
             "price": 53.26
         },
         {
-            "id": "19c5d477-a7c8-4e62-8922-be35b9bd9e49",
+            "id": "19c4d477-a7c8-4e62-8922-be35b9bd9e49",
             "ItemClass": "Home",
             "ItemName": "Immuron",
             "amount": 28,
@@ -56,7 +56,7 @@
             "price": 67.60
         },
         {
-            "id": "19c3d377-a7c8-4e62-8922-be35b9bd9e49",
+            "id": "19f3d377-a7c8-4e62-8922-be35b9bd9e49",
             "ItemClass": "Garden",
             "ItemName": "Cempra",
             "amount": 90,
@@ -64,7 +64,7 @@
             "price": 59.82
         },
         {
-            "id": "19c3s377-a7c8-4e62-8922-be35b9bd9e49",
+            "id": "18c3s377-a7c8-4e62-8922-be35b9bd9e49",
             "ItemClass": "Baby",
             "ItemName": "Retail Properties",
             "amount": 46,
@@ -72,7 +72,7 @@
             "price": 61.79
         },
         {
-            "id": "19c3d377-e7c8-4e62-8922-be35b9bd9e49",
+            "id": "12c3d377-e7c8-4e62-8922-be35b9bd9e49",
             "ItemClass": "Computers",
             "ItemName": "Vectrusd",
             "amount": 36,
@@ -80,7 +80,7 @@
             "price": 19.71
         },
         {
-            "id": "19c3d375-e7c8-4e62-8922-be35b9bd9e49",
+            "id": "13c3d375-e7c8-4e62-8922-be35b9bd9e49",
             "ItemClass": "Computers",
             "ItemName": "hp",
             "amount": 26,
@@ -92,13 +92,22 @@
             "userId": "19c3d377-a7c8-3e62-8922-be35b9hd9e49",
             "username": "Paolo",
             "email": "ciao@edel.com",
-            "password": "asdf"
+            "password": "asdf",
+            "role": "Admin"
         },
         {
             "userId": "19c3d377-a7k8-4e62-8922-be35b5bd9e49",
             "username": "Marco",
             "email": "gratem@edel.com",
-            "password": "1234"
+            "password": "1234",
+            "role": "user"
+        },
+        {
+            "userId": "19c3d377-a7k8-4h62-8922-be35b5bd9e49",
+            "username": "Pietro",
+            "email": "grwatem@edel.com",
+            "password": "1234",
+            "role": "costumer"
         }
     ],
     "itemsTake": [{
